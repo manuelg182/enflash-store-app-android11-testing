@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name">Enflash</string>
+    <string name="empty" />
+    <string name="imagedesc">Descripción de la imagen</string>
+
+    <!-- login -->
+    <string name="usuario">Usuario:</string>
+    <string name="email">Email:</string>
+    <string name="contrasena">Contraseña:</string>
+    <string name="registrar">Registrarse</string>
+    <string name="registro">Confirmar tu registro</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="reenviar">Reenviar código de confirmación</string>
+    <string name="logearse">Logearse</string>
+    <string name="olvidepass">Olvide mi contraseña</string>
+    <string name="resend">Reiniciar contraseña</string>
+    <string name="nuevopass">Nueva contraseña</string>
+    <string name="reiniciar">Reiniciar</string>
+
+    <!-- Toast -->
+    <string name="ingresa_login">Ingresa el codigo para confirmar tu email</string>
+    <string name="logeado_success">Registrado, logeate!</string>
+    <string name="yalogeate">Registrado, logeate</string>
+    <string name="resend_confirmation">Codigo de confirmacion enviado </string>
+    <string name="userpass">Codigo de reset enviado</string>
+    <string name="cambiado">Contraseña cambiada logeate ahora</string>
+    <string name="required">Campo requerido</string>
+    <string name="load">Nombre de usuario requerido.</string>
+    <string name="intenta">Intenta nuevamente, con un QR Q-bits valido.</string>
+    <string name="actualizomenu">Su menú se actualizo.</string>
+    <string name="message_update_certificate">Su certificado se actualizo</string>
+    <string name="message_update_private_key">Su llave privada se actualizo</string>
+    <string name="mesa_registrada">Mesa registrada</string>
+    <string name="closesession">Cerrar tu sesión</string>
+    <string name="segurosesion">¿Estas seguro que deseas continuar?</string>
+    <string name="noencontrado">Usuario no confirmado.</string>
+    <string name="usuariopasswrong">Contraseña incorrecta</string>
+    <string name="limitellego">Se llego al limite de intentos, intenta mas tarde</string>
+    <string name="invalidparams">Usuario no confirmado, código enviado.</string>
+    <string name="yausado">Usuario o contraseña ya existente.</string>
+    <string name="checale">Parametros incorrectos.</string>
+    <string name="errorcertificados">Debes cargar los certificados en la opción ajustes.</string>
+    <string name="noseconectoalmqtt">No se pudo conectar al servidor.</string>
+    <string name="seleccionaproductos">Debes seleccionar que orders vas a cancelar</string>
+    <string name="title_progres_espere">Por favor espere...</string>
+    <string name="title">Titulo</string>
+    <string name="desc">Detalles</string>
+    <string name="Password">Ingresa tu contraseña</string>
+
+    <string name="title_activity_splashscreen">SplashscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_route">Ruta</string>
+    <string name="rechazar">Rechazar</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="recoletar">Recolectar</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="list_item_view">Ver</string>
+    <string name="orders_by_accept">Por aceptar</string>
+    <string name="orders_in_preparation">En preparación</string>
+    <string name="orders_by_collect">Por recolectar</string>
+    <string name="title_activity_orders">OrdersActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+
+</resources>

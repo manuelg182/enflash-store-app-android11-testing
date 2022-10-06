@@ -1,0 +1,162 @@
+repositories {
+    jcenter()
+    google()
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+}
+
+buildscript {
+    ext.kotlin_version = '1.4.21'
+    repositories {
+        jcenter()
+        google()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.3'
+        classpath 'com.google.gms:google-services:4.3.5'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.2'
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.core:core-ktx:1.3.2"
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'com.google.firebase:firebase-messaging:21.1.0'
+    annotationProcessor('com.github.bumptech.glide:compiler:4.11.0') {
+        transitive = true
+    }
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    implementation "com.amazonaws:aws-android-sdk-iot:2.16.0"
+    implementation 'com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.17.1'
+    implementation("com.amazonaws:aws-android-sdk-mobile-client:2.17.1") { transitive = true }
+
+    implementation 'com.karumi:dexter:6.2.2'
+
+    implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.room:room-runtime:2.2.6'
+    kapt 'androidx.room:room-compiler:2.2.6'
+
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation group: 'com.github.seratch', name: 'java-time-backport', version: '1.0.0'
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    def appCenterSdkVersion = '4.1.0'
+    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        versionCode 10
+        versionName "9.0.0"
+        minSdkVersion 22
+        targetSdkVersion 30
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.incremental": "true"]
+            }
+        }
+
+        ndk {
+            abiFilters "armeabi-v7a", 'arm64-v8a', "x86", 'x86_64', "armeabi", "mips"
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            manifestPlaceholders = [providerId: "com.enflash.mobile.storeapp"]
+            buildConfigField "String", "CUSTOMER_SPECIFIC_IOT_ENDPOINT", '"a3t0lj8n0likgd-ats.iot.us-east-1.amazonaws.com"'
+            buildConfigField "String", "IDENTITY_POOL_ID", '"us-east-1:8ff7cc25-2257-48dd-87ce-09b8dcd7169b"'
+            buildConfigField "String", "USER_POOL_ID", '"us-east-1_uXUAsXE5a"'
+            buildConfigField "String", "COGNITO", '"cognito-idp.us-east-1.amazonaws.com/us-east-1_uXUAsXE5a"'
+            buildConfigField "String", "CLIENT_ID", '"1ddenpj3tcn08mlb76fs7j7qro"'
+            buildConfigField "String", "CLIENT_SECRET", '"mlph6teesmj4folc36hq0svl0dgb0bh9bc92th0bqqkh4cra07m"'
+            buildConfigField "String", "URL_BASE_ENFLASH", '"https://api.enflash.mx/"'
+            buildConfigField "String", "CHANNEL_ID", '"push_store_app"'
+            buildConfigField "String", "APPLICATION_NAME", '"Enflash Store"'
+            buildConfigField "String", "CHANNEL_NAME", '"Enflash Store App"'
+            buildConfigField "String", "CHANNEL_SERVICIO_NAME", '"Enflash Service"'
+            buildConfigField "String", "X_API_KEY_SERVICES", '"Vlth61p0zQ9ZyZpOQ3PMZ4OlBab9l2Ad3fKZkXnb"'
+            buildConfigField "int", "NOTIFICATION_ID", 1.toString()
+            buildConfigField 'String', 'FILE_PROVIDER', '"com.enflash.mobile.storeapp.fileprovider"'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            manifestPlaceholders = [providerId: "com.enflash.mobile.storeapp"]
+            buildConfigField "String", "CUSTOMER_SPECIFIC_IOT_ENDPOINT", '"a3t0lj8n0likgd-ats.iot.us-east-1.amazonaws.com"'
+            buildConfigField "String", "IDENTITY_POOL_ID", '"us-east-1:8ff7cc25-2257-48dd-87ce-09b8dcd7169b"'
+            buildConfigField "String", "USER_POOL_ID", '"us-east-1_uXUAsXE5a"'
+            buildConfigField "String", "COGNITO", '"cognito-idp.us-east-1.amazonaws.com/us-east-1_uXUAsXE5a"'
+            buildConfigField "String", "CLIENT_ID", '"1ddenpj3tcn08mlb76fs7j7qro"'
+            buildConfigField "String", "CLIENT_SECRET", '"mlph6teesmj4folc36hq0svl0dgb0bh9bc92th0bqqkh4cra07m"'
+            buildConfigField "String", "URL_BASE_ENFLASH", '"https://api.enflash.mx/"'
+            buildConfigField "String", "CHANNEL_ID", '"push_store_app"'
+            buildConfigField "String", "APPLICATION_NAME", '"Enflash Store"'
+            buildConfigField "String", "CHANNEL_NAME", '"Enflash Store App"'
+            buildConfigField "String", "CHANNEL_SERVICIO_NAME", '"Enflash Service"'
+            buildConfigField "String", "X_API_KEY_SERVICES", '"Vlth61p0zQ9ZyZpOQ3PMZ4OlBab9l2Ad3fKZkXnb"'
+            buildConfigField "int", "NOTIFICATION_ID", 1.toString()
+            buildConfigField 'String', 'FILE_PROVIDER', '"com.enflash.mobile.storeapp.fileprovider"'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
