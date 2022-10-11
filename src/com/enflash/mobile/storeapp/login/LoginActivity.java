@@ -23,11 +23,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.renderscript.ScriptGroup;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
+//import
+
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,6 +59,7 @@ import com.enflash.mobile.storeapp.main.MainActivity;
 import com.enflash.mobile.storeapp.utils.CustomProgress;
 import com.enflash.mobile.storeapp.utils.PreferencesManager;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -83,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
         initApp();
         findCurrent();
     }
+
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -404,9 +413,34 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
             }
-        });
-    }
 
+        });
+
+        //Función para hacer el drawable clickeable y descubrir contraseña
+       /* inPassword.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+                boolean clicked = false;
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getRawX() >= (inPassword.getRight() - inPassword.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+
+
+
+                        return true;
+
+                    }
+
+                }
+                return false;
+            }
+
+            });*/
+
+    }
 
     // Callbacks
     ForgotPasswordHandler forgotPasswordHandler = new ForgotPasswordHandler() {
@@ -559,7 +593,7 @@ public class LoginActivity extends AppCompatActivity {
         });
         userDialog = builder.create();
         userDialog.show();
-    }
+    };
 
     private void closeWaitDialog() {
         try {
