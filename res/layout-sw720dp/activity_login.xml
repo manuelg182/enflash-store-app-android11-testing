@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:scrollbars="none">
+    android:scrollbars="none"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,7 +61,13 @@
                 android:text="Correo electrónico"
                 android:textColor="#BC3F4658"
                 android:textSize="18dp" />
-
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:endIconDrawable="@drawable/ic"
+                app:endIconTint="@color/orange"
+                app:endIconMode="custom"
+                >
                 <EditText
                     android:id="@+id/editTextUserId"
                     android:layout_width="match_parent"
@@ -68,7 +75,8 @@
                     android:layout_marginLeft="12dp"
                     android:imeOptions="actionNext"
                     android:inputType="textEmailAddress"
-                    android:drawableRight="@drawable/ic" />
+                     />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,13 +88,20 @@
                 android:textColor="#BC3F4658"
                 android:textSize="18dp" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/orange"
+
+                >
             <EditText
                 android:id="@+id/editTextUserPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:inputType="textPassword"
-                android:drawableRight="@drawable/ic_pass" />
+                 />
+            </com.google.android.material.textfield.TextInputLayout>
 
 <!--            <TextView-->
 <!--                android:layout_width="wrap_content"-->

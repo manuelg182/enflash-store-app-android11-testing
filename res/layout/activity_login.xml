@@ -62,15 +62,11 @@
                 android:textSize="18dp"
                 />
             <com.google.android.material.textfield.TextInputLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:endIconDrawable="@drawable/ic"
-                app:endIconTint="@color/button_default"
+                app:endIconTint="@color/orange"
                 app:endIconMode="custom"
-
-
-
                 >
             <EditText
                 android:id="@+id/editTextUserId"
@@ -78,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:imeOptions="actionNext"
-                android:inputType="text" />
+                android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -94,10 +90,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
-                app:endIconDrawable="@drawable/button_selected"
                 app:passwordToggleEnabled="true"
-                app:passwordToggleDrawable="@drawable/ic_pass"
+                app:passwordToggleTint="@color/orange"
 
                 >
 
@@ -107,7 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:inputType="textPassword" />
+                 />
             </com.google.android.material.textfield.TextInputLayout>
 
 <!--            <TextView-->
